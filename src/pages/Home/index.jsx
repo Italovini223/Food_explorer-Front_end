@@ -4,6 +4,7 @@ import { Header } from '../../components/Header';
 
 import BannerImg from '../../assets/banner.png';
 import { Dish } from "../../components/Dish";
+import { DishCategory } from "../../components/DishCategory";
 
 export function Home(){
   return(
@@ -18,7 +19,13 @@ export function Home(){
             <p>Sinta o cuidado do preparo com ingredientes selecionados</p>
           </div>
         </Banner>
-        <Dish />
+        <DishCategory>
+          <Dish />
+          <Dish />
+          <Dish />
+          <Dish />
+          <Dish />
+        </DishCategory>
       </Content>
     </Container>
   )

@@ -21,6 +21,10 @@ export const Content = styled.div`
   overflow-y: auto;
 
   grid-area: content;
+
+  &&::-webkit-scrollbar {
+    width: 12px;               
+  } 
 `;
 
 export const Banner = styled.div`
@@ -28,6 +32,7 @@ export const Banner = styled.div`
   height: 260px;
 
   margin-top: 164px;
+  margin-bottom: 64px;
 
   display: flex;
   justify-content: flex-end;

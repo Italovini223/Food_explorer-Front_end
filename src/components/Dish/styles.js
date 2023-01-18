@@ -7,6 +7,12 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
 
+  border-radius: 8px;
+
+  text-align: center;
+
+  flex: none;
+
   color: ${({theme}) => theme.COLORS.WHITE};
   background: ${({theme}) => theme.COLORS.BLUE_400};
 `;
