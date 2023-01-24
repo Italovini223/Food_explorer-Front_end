@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.section`
-  padding-inline: 4rem;
-  margin-bottom: 4rem;
+  padding-inline: 40px;
+  margin-bottom: 40px;
 
   color: ${({theme}) => theme.COLORS.WHITE};
 
   > h2 {
-    font-size: clamp(2rem, 2rem + 3vw, 3.2rem);
+    font-size: clamp(20px, 20px + 3vw, 32px);
     margin-bottom: 4rem;
   }
   
@@ -17,10 +17,10 @@ export const Container = styled.section`
 `
 export const Slider = styled.div`
   position: relative;
-  max-width: 136.8rem;
+  max-width: 1368px;
   > div {
     display: flex;
-    gap: 2.7rem;
+    gap: 27px;
     overflow-x: auto;
     scroll-behavior: smooth;
     ::-webkit-scrollbar {
@@ -30,9 +30,9 @@ export const Slider = styled.div`
   .btn-left, .btn-right {
     position: absolute;
     z-index: 5;
-    height: 51.2rem;
-    width: 11.6rem;
-    padding-inline: 1rem;
+    height: 510px;
+    width: 116px;
+    padding-inline: 10px;
     color: ${({ theme }) => theme.COLORS.WHITE};
     display: none;
   }

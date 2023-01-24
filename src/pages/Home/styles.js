@@ -2,29 +2,13 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  height: 100vh;
-
-  display: grid;
-  grid-template-rows: 104px auto;
-  grid-template-areas:
-  "header"
-  "content";
 
 `;
 
 export const Content = styled.div`
   width: 50%;
-  height: 100%;
+  margin-inline: auto;
 
-  margin: 0 auto;
-
-  overflow-y: auto;
-
-  grid-area: content;
-
-  &&::-webkit-scrollbar {
-    width: 12px;               
-  } 
 `;
 
 export const Banner = styled.div`

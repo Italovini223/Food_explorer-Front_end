@@ -84,6 +84,7 @@ export const DishDetails = styled.div`
       button {
         border: none;
         background: transparent;
+        cursor: pointer;
 
         svg {
           color: ${({theme}) => theme.COLORS.WHITE};

@@ -5,6 +5,7 @@ import { Header } from '../../components/Header';
 import BannerImg from '../../assets/banner.png';
 import { Dish } from "../../components/Dish";
 import { DishCategory } from "../../components/DishCategory";
+import { Footer } from "../../components/Footer";
 
 export function Home(){
   return(
@@ -26,7 +27,16 @@ export function Home(){
           <Dish />
           <Dish />
         </DishCategory>
+        <DishCategory>
+          <Dish />
+          <Dish />
+          <Dish />
+          <Dish />
+          <Dish />
+        </DishCategory>
       </Content>
+      <Footer />
     </Container>
+    
   )
 }
