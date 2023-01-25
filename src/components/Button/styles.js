@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.button`
-  max-width: 216px;
+  width: 100%;
   height: 56px;
 
   display: flex;
@@ -14,7 +14,7 @@ export const Container = styled.button`
   border-radius: 5px;
 
   border: none;
-  background: ${({theme}) => theme.COLORS.RED_500};
+  background: ${({theme, redDisabled}) => redDisabled ? theme.COLORS.RED_600  :  theme.COLORS.RED_500};
 
   > svg {
     font-size: 32px;
@@ -25,4 +25,9 @@ export const Container = styled.button`
     font-size: 14px;
     color: ${({theme}) => theme.COLORS.WHITE};
   }
+
+  &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
 `;

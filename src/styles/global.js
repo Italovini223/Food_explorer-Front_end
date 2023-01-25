@@ -9,5 +9,10 @@ export default createGlobalStyle`
 
   body {
     background: ${({theme}) => theme.COLORS.BACKGROUND_500};
+
+    button:hover {
+      opacity: 0.5;
+    }
   }
+
 `;
