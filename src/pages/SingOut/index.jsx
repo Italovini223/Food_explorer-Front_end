@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Container, Content, SingInForm } from "./styles";
+import { Container, Content, SingOutForm } from "./styles";
 
 import {Label} from '../../components/Label';
 import {Button} from '../../components/Button/styled';
@@ -8,34 +8,45 @@ import {Button} from '../../components/Button/styled';
 import LogoImg from '../../assets/Group 5946 big.svg'
 
 
-export function SingIn(){
+export function SingOut(){
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  function handleSingIn() {
+  function handleSingOut() {
       setIsLoading(true);
 
-      if(password.length < 6) {
-        return alert("A senha deve conter seis dígitos");
-      }
-  
-      if(!email || !password) {
+      if(!name || !email || !password){
+        setIsLoading(false);
         return alert("Preencha todos os campos");
+        
       }
 
-      console.log(email, password);
+      if(password.length < 6){
+        setIsLoading(false);
+        return alert("A senha deve conter no mínimo 6 caracteres");
+      }
+
+      console.log(name, email, password);
     
-      setIsLoading(false)
+      setIsLoading(false);
   }  
 
   return (
     <Container>
       <Content>
         <img src={LogoImg} alt="" />
-        <SingInForm>
+        <SingOutForm>
           <div>
-            <h2>Faça login</h2>
+            <h2>Crie sua conta</h2>
+            <Label 
+              title="Seu nome"
+              type="text"
+              placeholder="Exemplo: Maria da Silva"
+              onChange={e => setName(e.target.value)}
+
+            />
             <Label 
               title="Email"
               type="text"	
@@ -51,13 +62,13 @@ export function SingIn(){
             <Button 
               text={isLoading ? "Carregando" : "Entrar"}
               IsLoading={isLoading}
-              onClick={handleSingIn}
+              onClick={handleSingOut}
             />
-            <a href="/register">
-              Criar uma conta
+            <a href="/">
+              Ja tenho uma conta
             </a>
           </div>
-        </SingInForm>
+        </SingOutForm>
       </Content>
     </Container>
   )
