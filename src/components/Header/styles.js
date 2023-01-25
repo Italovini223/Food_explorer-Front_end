@@ -4,24 +4,33 @@ export const Container = styled.header`
   width: 100%;
   height: 104px;
 
-  display: flex;
-  align-items: center;
-  gap: 32px;
-
-  padding: 0 132px;
-
-
   background: ${({theme}) => theme.COLORS.BLUE_900};
 
   grid-area: header;
 
+  display: flex;
+  align-items: center;
+
+`;
+
+export const Content = styled.div`
+  width: 50%;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
   > a {
-    width: 139px;
+    min-width: 139px;
     text-decoration: none;
     color: ${({theme}) => theme.COLORS.WHITE};
     font-size: 16px;
   }
 
+  > button {
+    max-width: 200px;
+  }
 `;
 
 

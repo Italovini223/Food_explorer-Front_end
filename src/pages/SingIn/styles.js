@@ -21,6 +21,8 @@ export const SingInForm = styled.div`
   width: 476px;
   height: 600px;
 
+  border-radius: 16px;
+
   background: ${({theme}) => theme.COLORS.BLUE_700};
 
   > div {
