@@ -50,10 +50,13 @@ export const DishDetails = styled.div`
     height: 176px;
   }
 
-  h2 {
+  a {
     font-size: 24px;
     font-weight: 700;
     line-height: 33px;
+    text-decoration: none;
+
+    color: ${({theme}) => theme.COLORS.WHITE};
   }
 
   p {

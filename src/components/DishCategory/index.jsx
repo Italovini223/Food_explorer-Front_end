@@ -19,7 +19,7 @@ export function DishCategory({title, children}) {
 
    return (
     <Container>
-      <h2>prato principal</h2>
+      <h2>{title}</h2>
 
       <Slider>
         <button 

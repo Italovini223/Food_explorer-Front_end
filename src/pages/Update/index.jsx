@@ -1,5 +1,9 @@
 import { useState } from "react";
 
+import { api } from "../../service/api";
+
+import { useParams } from "react-router-dom";
+
 import { Container, Content, Form, InputWrapper, SectionIngredients } from "./styles";
 
 import {SlArrowLeft, FiUpload} from 'react-icons/all';
@@ -11,12 +15,15 @@ import {Textarea} from '../../components/Textarea';
 import { Footer } from '../../components/Footer'
 
 export function Update(){
-
+  const [avatarFile, setAvatarFile] = useState(null);
   const [ingredients, setIngredients] = useState([]);
   const [newIngredient, setNewIngredient] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
+  const [name, setName] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
+  const params = useParams();
 
   function addIngredients(){
     setIngredients(prevState => [...prevState, newIngredient])
@@ -26,12 +33,32 @@ export function Update(){
     setIngredients(prevState => prevState.filter(ingredient => ingredient !== ingredientDeleted))
   }
 
-  function handleUpdateDish(){
-    const stingPrice = price.replace(",", ".")
 
+  async function handleUpdateDish({name, description, ingredients, price}){ 
+    setIsLoading(true);
 
-    console.log(Number(stingPrice))
+    if(!name || !description || !ingredients || !price) {
+      setIsLoading(false);
+      return alert("Preencha todos os campos")
+    }
+
+    const replacePrice = price.replace(",", ".")
+
+    const formData = new FormData();
+    formData.append("avatar", avatarFile)
+    formData.append("name", name);
+    formData.append("description", description);
+    formData.append("price", Number(replacePrice));
+    ingredients.map(ingredient => formData.append("ingredients", ingredient));
+
+    await api.put(`/dish/update/${params.id}`, formData);
+
+    alert("Prato atualizado com com sucesso");
+
+    setIsLoading(false);
   }
+
+
   return (
     <Container>
       <Header />
@@ -52,6 +79,7 @@ export function Update(){
                     <input 
                       id="image" 
                       type="file"
+                      onChange={e => setAvatarFile(e.target.files[0])}
                     />
                   </div>
               </label>
@@ -61,7 +89,7 @@ export function Update(){
                 title="Nome do prato" 
                 type="text" 
                 placeholder="Ex.: Salada Ceasar"
-                onChange={e => setTitle(e.target.value)}
+                onChange={e => setName(e.target.value)}
               />
           </InputWrapper>
 
@@ -74,13 +102,12 @@ export function Update(){
                       <IngredientItem 
                         key={String(index)} 
                         value={ingredient}
-                        onClick={() => removeIngredient(ingredient)} 
+                        onClick={() => removeIngredient(ingredient)}
                       />
                     ))
                   }
                   <IngredientItem 
                     isNew 
-                    value={newIngredient}
                     placeholder="Adicionar"
                     onChange={e => setNewIngredient(e.target.value)}
                     onClick={addIngredients}
@@ -106,9 +133,9 @@ export function Update(){
             <button
               type="button"
               disabled={isLoading}
-              onClick={handleUpdateDish}
+              onClick={() => handleUpdateDish({name, description, ingredients, price})}
             >
-              {isLoading ? "Adicionando pedido" : "Adicionar pedido"}
+              {isLoading ? "Atualizando pedido" : "Atualizar pedido"}
             </button>
         </Form>
       </Content>

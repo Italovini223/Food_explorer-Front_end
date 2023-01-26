@@ -1,3 +1,5 @@
+import {useAuth} from '../../hooks/auth';
+
 import { Container, ExitButton, Content } from "./styles";
 
 import {BiSearch, TfiReceipt, RxExit} from 'react-icons/all'
@@ -8,11 +10,18 @@ import { Input } from "../Input";
 import { Button } from "../Button/styled";
 
 export function Header(){
+
+  const {singOut, user} = useAuth();
+
+  function handleSingOut(){
+    singOut();
+  }
+
   return (
     <Container>
      <Content>
       <img src={logoImg} alt="Logo escrito food explorer" />
-        <a href="#">Meus favoritos</a>
+        {user.isAdmin !== 1 ? <a href="#">Meus favoritos</a> : <a href="/new">Adicionar pratos</a>}
         <Input 
           icon={BiSearch}
           placeholder="Busque pelas opções de pratos"
@@ -22,7 +31,7 @@ export function Header(){
           text="Meus pedidos(0)"
         />
 
-        <ExitButton>
+        <ExitButton onClick={handleSingOut}>
           <RxExit />
         </ExitButton>
      </Content>

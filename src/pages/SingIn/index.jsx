@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import {useAuth} from '../../hooks/auth';
+
 import { Container, Content, SingInForm } from "./styles";
 
 import {Label} from '../../components/Label';
@@ -11,22 +13,21 @@ import LogoImg from '../../assets/Group 5946 big.svg'
 export function SingIn(){
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+
+  const {singIn, isLoading} = useAuth();
+  
 
   function handleSingIn() {
-      setIsLoading(true);
-
-      if(password.length < 6) {
-        return alert("A senha deve conter seis dígitos");
-      }
+    if(password.length < 6) {
+      return alert("A senha deve conter seis dígitos");
+    }
   
-      if(!email || !password) {
-        return alert("Preencha todos os campos");
-      }
+    if(!email || !password) {
+      return alert("Preencha todos os campos");
+    }
 
-      console.log(email, password);
+    singIn({email, password});
     
-      setIsLoading(false)
   }  
 
   return (

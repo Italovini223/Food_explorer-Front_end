@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { api } from "../../service/api";
+
 import { Container, Content, Form, InputWrapper, SectionIngredients } from "./styles";
 
 import {SlArrowLeft, FiUpload} from 'react-icons/all';
@@ -13,9 +15,16 @@ import { Footer } from '../../components/Footer'
 export function New(){
 
   const [ingredients, setIngredients] = useState([]);
+
   const [newIngredient, setNewIngredient] = useState("");
   const [description, setDescription] = useState("");
+  const [name, setName] = useState("");
+  const [category, setCategory] = useState("");
+  const [price, setPrice] = useState("");
+
   const [isLoading, setIsLoading] = useState(false);
+  const [avatarFile, setAvatarFile] = useState(null);
+
 
   function addIngredients(){
     setIngredients(prevState => [...prevState, newIngredient])
@@ -24,6 +33,40 @@ export function New(){
   function removeIngredient(ingredientDeleted){
     setIngredients(prevState => prevState.filter(ingredient => ingredient !== ingredientDeleted))
   }
+
+  async function handleNewDish({name, description, ingredients, price}){
+    try{
+
+      setIsLoading(true);
+
+      if(!name || !description || !ingredients || !price) {
+        setIsLoading(false);
+        return alert("Preencha todos os campos")
+      }
+
+      const replacePrice = price.replace(",", ".")
+
+      const formData = new FormData();
+      formData.append("avatar", avatarFile)
+      formData.append("name", name);
+      formData.append("description", description);
+      formData.append("category", category);
+      formData.append("price", Number(replacePrice));
+      ingredients.map(ingredient => formData.append("ingredients", ingredient));
+
+
+      await api.post("/dish/create", formData);
+
+      alert("Prato criado com sucesso");
+
+      setIsLoading(false);
+
+    } catch(error){
+      alert("Nao foi possível cadastrar o prato")
+      setIsLoading(false);
+      console.log(error);
+    }
+  } 
   return (
     <Container>
       <Header />
@@ -44,6 +87,7 @@ export function New(){
                     <input 
                       id="image" 
                       type="file"
+                      onChange={e => setAvatarFile(e.target.files[0])}
                     />
                   </div>
               </label>
@@ -53,7 +97,7 @@ export function New(){
                 title="Nome do prato" 
                 type="text" 
                 placeholder="Ex.: Salada Ceasar"
-                onChange={e => setTitle(e.target.value)}
+                onChange={e => setName(e.target.value)}
               />
               <Label
                 label="category"
@@ -92,6 +136,7 @@ export function New(){
                   title="Preço" 
                   type="text" 
                   placeholder="R$ 00,00"
+                  onChange={e => setPrice(e.target.value)}
                 />
               </div>
             </InputWrapper>
@@ -104,6 +149,7 @@ export function New(){
             <button
               type="button"
               disabled={isLoading}
+              onClick={() => handleNewDish({name, description, price, ingredients, })}
             >
               {isLoading ? "Adicionando pedido" : "Adicionar pedido"}
             </button>
