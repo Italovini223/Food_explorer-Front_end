@@ -1,8 +1,11 @@
 import {useAuth} from '../../hooks/auth';
+import {useCart} from '../../hooks/cart';
 
 import { Container, ExitButton, Content } from "./styles";
 
 import {BiSearch, TfiReceipt, RxExit} from 'react-icons/all'
+
+import { useNavigate } from 'react-router-dom';
 
 import logoImg from '../../assets/Frame 5946.svg';
 
@@ -12,10 +15,14 @@ import { Button } from "../Button/styled";
 export function Header(){
 
   const {singOut, user} = useAuth();
+  const {cart} = useCart();
+
+  const navigate = useNavigate();
 
   function handleSingOut(){
     singOut();
   }
+
 
   return (
     <Container>
@@ -28,7 +35,8 @@ export function Header(){
         />
         <Button 
           icon={TfiReceipt}
-          text="Meus pedidos(0)"
+          text={`Meus pedidos(${cart.length})`}
+          onClick={() => navigate("/order")}
         />
 
         <ExitButton onClick={handleSingOut}>

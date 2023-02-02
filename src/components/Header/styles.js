@@ -4,7 +4,7 @@ export const Container = styled.header`
   width: 100%;
   height: 104px;
 
-  background: ${({theme}) => theme.COLORS.BLUE_900};
+  background: ${({theme}) => theme.COLORS.BLUE_800};
 
   grid-area: header;
 

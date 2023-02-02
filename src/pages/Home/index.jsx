@@ -18,7 +18,6 @@ export function Home(){
       const response = await api.get("/dish");
   
       setDishes([...response.data]);
-      console.log(...response.data);
     }
 
     fetchDishes();

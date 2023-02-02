@@ -2,6 +2,8 @@ import {useState} from 'react';
 import { api } from '../../service/api';
 
 import {useAuth} from '../../hooks/auth'
+import {useFavorites} from '../../hooks/favorites';
+import {useCart} from '../../hooks/cart';
 
 import { Container, DishDetails, FavoriteButton } from "./styles";
 
@@ -14,8 +16,19 @@ export function Dish({data}){
   const imageURL = `${api.defaults.baseURL}/files/${data.avatar}`;
 
   const {user} = useAuth();
+  const {favorites, removeFavorite, addFavorite } = useFavorites();
+  const {addDishRToCart} = useCart();
+
+  let isFavorite = favorites.some((dish) => dish.id === data.id);
 
   const link = user.isAdmin !== 1 ? "#" : `/update/${data.id}`;
+
+  const dish ={
+    title: data.name,
+    avatar: data.avatar,
+    price: data.price,
+    quantity
+  }
 
   function handleMoreQuantity(){
     const addQuantity = quantity + 1;
@@ -37,8 +50,10 @@ export function Dish({data}){
   return(
     <Container>
       <FavoriteButton>
-        <button>
-          <AiOutlineHeart />
+        <button
+          onClick={() => isFavorite ? removeFavorite(data) : addFavorite(data)}
+        >
+          {isFavorite ? <AiFillHeart /> : <AiOutlineHeart />}
         </button>
       </FavoriteButton>
 
@@ -60,7 +75,7 @@ export function Dish({data}){
             </button>
           </div>
 
-          <Button text="incluir" />
+          <Button text="incluir" onClick={() => addDishRToCart(dish)} />
         </div>
       </DishDetails>
   </Container>
