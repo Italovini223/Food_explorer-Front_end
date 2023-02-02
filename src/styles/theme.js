@@ -10,6 +10,8 @@ export default {
     BLUE_600: "#091E26",
     BLUE_500: "#065E7C",
     BLUE_400: "Rgb(0, 7, 10)",
+    BLUE_200:  "#82F3FF",
+
 
     GRAY_500: "#7C7C8A", 
     GRAY_200: "#C4C4CC", 

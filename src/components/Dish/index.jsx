@@ -1,19 +1,23 @@
 import {useState} from 'react';
 import { api } from '../../service/api';
 
+import { useNavigate } from 'react-router-dom';
+
 import {useAuth} from '../../hooks/auth'
 import {useFavorites} from '../../hooks/favorites';
 import {useCart} from '../../hooks/cart';
 
 import { Container, DishDetails, FavoriteButton } from "./styles";
 
-import {AiOutlineHeart, AiFillHeart, IoMdAdd, AiOutlineMinus} from 'react-icons/all'
+import {AiOutlineHeart, AiFillHeart, IoMdAdd, AiOutlineMinus, FiTrash} from 'react-icons/all'
 import React from "react";
-import { Button } from '../Button/styled';
+import { Button } from '../Button';
 
 export function Dish({data}){
   const[quantity, setQuantity] = useState(1);
   const imageURL = `${api.defaults.baseURL}/files/${data.avatar}`;
+
+  const navigate = useNavigate();
 
   const {user} = useAuth();
   const {favorites, removeFavorite, addFavorite } = useFavorites();
@@ -21,12 +25,15 @@ export function Dish({data}){
 
   let isFavorite = favorites.some((dish) => dish.id === data.id);
 
-  const link = user.isAdmin !== 1 ? "#" : `/update/${data.id}`;
+  const link = user.isAdmin !== 1 ? `/details/${data.id}` : `/update/${data.id}`;
+
+  const isAdmin = user.isAdmin === 1;
 
   const dish ={
     title: data.name,
     avatar: data.avatar,
     price: data.price,
+    id: data.id,
     quantity
   }
 
@@ -47,21 +54,39 @@ export function Dish({data}){
     setQuantity(lessQuantity);
   }
 
+  async function deleteDish(){
+    const response = await api.delete(`/dish/delete/${data.id}`); 
+
+    alert(response.data.message); 
+     navigate("/"); 
+
+
+  }
+
   return(
     <Container>
       <FavoriteButton>
-        <button
+       {
+        isAdmin ? 
+          <button
+            onClick={deleteDish}
+          >
+            <FiTrash />
+          </button>
+        :
+          <button
           onClick={() => isFavorite ? removeFavorite(data) : addFavorite(data)}
-        >
-          {isFavorite ? <AiFillHeart /> : <AiOutlineHeart />}
-        </button>
+          >
+            {isFavorite ? <AiFillHeart /> : <AiOutlineHeart />}
+          </button>
+       }
       </FavoriteButton>
 
       <DishDetails>
         <img src={imageURL} alt="Imagem do prato" />
         <a href={link}>{data.name}</a>
         <p>{data.description}</p>
-        <strong>{String(data.price /100).replace(".", ",")}</strong>
+        <strong>R$ {String(data.price /100).replace(".", ",")}</strong>
         <div>
           <div className="quantity">
             <button onClick={handleMoreQuantity}>

@@ -8,7 +8,6 @@ function FavoritesProvider({children}){
   function addFavorite(data){
     setFavorites([...favorites, data]);
 
-    return alert("prato adicionado ao pedido");
   }
 
   async function removeFavorite(data){

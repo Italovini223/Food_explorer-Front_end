@@ -3,9 +3,10 @@ import { useState } from "react";
 import { Container, Content, SingOutForm } from "./styles";
 
 import {Label} from '../../components/Label';
-import {Button} from '../../components/Button/styled';
+import {Button} from '../../components/Button';
 
 import LogoImg from '../../assets/Group 5946 big.svg'
+import { api } from "../../service/api";
 
 
 export function SingOut(){
@@ -14,7 +15,7 @@ export function SingOut(){
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  function handleSingOut() {
+  async function handleSingOut() {
       setIsLoading(true);
 
       if(!name || !email || !password){
@@ -27,8 +28,6 @@ export function SingOut(){
         setIsLoading(false);
         return alert("A senha deve conter no mínimo 6 caracteres");
       }
-
-      console.log(name, email, password);
     
       setIsLoading(false);
   }  

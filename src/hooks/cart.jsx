@@ -7,10 +7,12 @@ function CartProvider({children}){
 
   function addDishRToCart(data){
     setCart([...cart, data]);
+
+    return alert("prato adicionado ao pedido");
   } 
 
-  function removeDishRFromCart(data){
-    const filteredCart = cart.filter((dish) => dish.id !== data.id);
+  async function removeDishRFromCart(data){
+    const filteredCart = await cart.filter((dish) => dish.id !== data.id);
 
     setCart([...filteredCart])
   }

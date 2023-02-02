@@ -21,7 +21,7 @@ export const Content = styled.div`
   align-items: center;
   gap: 32px;
 
-  > a {
+  > a:nth-child(2) {
     min-width: 139px;
     text-decoration: none;
     color: ${({theme}) => theme.COLORS.WHITE};
@@ -29,8 +29,12 @@ export const Content = styled.div`
   }
 
   > button {
-    max-width: 200px;
+    max-width: 250px;
   }
+`;
+
+export const Logo = styled.a`
+    text-decoration: none;
 `;
 
 

@@ -66,7 +66,7 @@ export const DishDetails = styled.div`
   }
 
   strong {
-    color: ${({theme}) => theme.COLORS.BLUE_500};
+    color: ${({theme}) => theme.COLORS.BLUE_200};
 
     font-size: 32px;
     font-weight: 400;

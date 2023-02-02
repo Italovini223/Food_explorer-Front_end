@@ -5,7 +5,7 @@ import {useAuth} from '../../hooks/auth';
 import { Container, Content, SingInForm } from "./styles";
 
 import {Label} from '../../components/Label';
-import {Button} from '../../components/Button/styled';
+import {Button} from '../../components/Button';
 
 import LogoImg from '../../assets/Group 5946 big.svg'
 
