@@ -1,168 +1,93 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  height: 100vh;
   width: 100%;
-`;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+`
 
 export const Content = styled.div`
-  width: 100%;
-  height: 100%;
-
-  margin-top: 32px;
-
-
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  gap: 75px;
-
-
-`;
-
-
-export const DishesContent = styled.div`
-  height: 100%;
-
-  > h1 {
-    font-size: 32px;
-    font-weight: 500;
-
-    margin-bottom: 32px;
-
-    color: ${({theme}) => theme.COLORS.WHITE};
-  }
-
-  > .dishes {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: left;
-    gap: 16px;
-
-    margin-bottom: 16px
-
-  }
-
-  > span {
-    font-size: 20px;
-    font-weight: 500;
+  flex: 1;
+  max-width: 136.8rem;
+  padding-inline: 4rem;
+  margin: 0 auto;
+  > h3 {
+    font-size: clamp(2rem, 1rem + 3vw, 3.2rem);
+    margin-block: 3.4rem;
     color: ${({theme}) => theme.COLORS.GRAY_100};
   }
-`;
-
-export const Payment = styled.div`
-  height: 100%;
-  
-
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-
-  flex: 1;
-
-  > h1 {
-    font-size: 32px;
-    font-weight: 500;
-
-    margin-bottom: 32px;
-
-    color: ${({theme}) => theme.COLORS.WHITE};
-  }
-
-  > div {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    div:nth-child(1) {
-      display: flex;
-      button {
-        width: 100%;
-        height: 81px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        background: transparent;
-        color: white;
-        font-size: 16px;
-        text-transform: uppercase;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 14px;
-      }
-      .add-background {
-        background: rgba(255, 255, 255, 0.05);
-      }
-      .button-pix {
-        background: ${({ ButtonBackgroundIsActive }) => ButtonBackgroundIsActive ? 'rgba(255, 255, 255, 0.05)' : 'none'};
-      }
-      .button-credit {
-        background: ${({ ButtonBackgroundIsActive }) => ButtonBackgroundIsActive ? 'none' : 'rgba(255, 255, 255, 0.05)'};
-      }
-    }
-    .option-payment {
-      padding: 4rem 4rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      > img {
-        max-width: 100%;
-        margin-inline: auto;
-        padding-bottom: 20px
-      }
-
-      .approved {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;;
-        gap: 69px;
-
-        span {
-          font-size: 24px;
-          font-weight: 400;
-          color: ${({theme}) => theme.COLORS.GRAY_200};
-        }
-      }
-
-      @media (min-width: 768px) {
-        padding: 40px 90px;
-      }
-    }
+  > main {
+    max-width: 100%;
+    margin-inline: auto;
   }
   @media (min-width: 768px) {
-    max-width: 530px;
+    main {
+      width: 136.8rem;
+    }
+    padding-inline: 12.3rem;
   }
-`;
+`
 
-export const SectionCredit = styled.section`
-  display: flex;
-  flex-direction: column;
+export const Table = styled.table`
+  border-collapse: collapse;
   width: 100%;
-  gap: 37px;
-  .data-card {
-    display: flex;
-    gap: 14px;
-    margin-bottom: 37px;
-    input {
-      width: 100%;
+  th, td {
+    border: 2px solid #192227;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 768px) {
+    th, td {
+      padding-inline: 2.4rem;
     }
   }
-`;
+`
 
-export const Accept = styled.div`
+export const Thead = styled.thead`
+  text-align: left;
+  height: 4.5rem;
+
+  color: ${({theme}) => theme.COLORS.GRAY_100};
+`
+
+export const Tbody = styled.tbody`
+  > tr {
+    height: 8rem;
+    td {
+      font-size: 1.4rem;
+      color: ${({ theme }) => theme.COLORS.GRAY_200};
+    }
+  }
+`
+
+export const SelectWrapper = styled.div`
+  position: relative;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  gap: 50px;
-  padding-block: 22px;
-  
-  > svg {
-    font-size: 104px;
-    color: ${({ theme }) => theme.COLORS.GRAY_200};
-  }
-  > p {
-    color: ${({ theme }) => theme.COLORS.GRAY_200};
-    font-size: 24px;
+  > span {
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+    
+    position: absolute;
+    left: 1.6rem;
   }
 
-`;
+  select {
+    width: 100%;
+    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_500};
+    padding: 1.3rem 1.6rem 1.3rem 3.2rem;
+    color: white;
+    border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
+    border-radius: 0.5rem;
+    appearance: none;
+    -webkit-appearance: none;
+    @media (min-width: 768px) {
+      background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 10L12 14L16 10' stroke='%239C98A6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+      background-repeat: no-repeat;
+      background-position: right 1rem top 50%;
+      width: 17.5rem;
+    }
+  }
+`

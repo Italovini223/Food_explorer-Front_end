@@ -4,7 +4,8 @@ export const Container = styled.div`
   width: 100%;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;                 
+  flex-direction: column;
+  justify-content: flex-start;                 
 `
 
 export const ButtonBack = styled.div`
@@ -15,6 +16,7 @@ export const ButtonBack = styled.div`
   > a {
     display: flex;
     align-items: center;
+    text-decoration: none;
     font-size: clamp(18px, 4px + 3vw, 24px);
     color: ${({ theme }) => theme.COLORS.WHITE};
   }
@@ -24,26 +26,25 @@ export const ButtonBack = styled.div`
 export const Content = styled.div`
   max-width: 1368px;
   height: 100%;
-  padding-inline: 40px;
-  margin-inline: auto;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   flex: 1;
+  gap: 100px;
  
 `
 
 export const Main = styled.main`
   display: flex;
-  flex-direction: column;
+  gap: 40PX;
   justify-content: center;
   align-items: center;
-  div:nth-child(1) {
-    max-width: 250px;
+  .dishContent{
+    width: 300px;
     border-radius: 50%;
-    img {
-      max-width: 100%;
+    > img {
+      width: 100%;
     }
   }
   > div:nth-child(2) {
@@ -80,12 +81,11 @@ export const Ingredients = styled.div`
   display: flex;
   gap: 20px;
   align-items: center;
-  margin-block: 30px;
-`
+  margin: 40px 0;
+`;
 
 export const Info = styled.div`
   margin-top: 20px;
-  padding-inline: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -94,7 +94,7 @@ export const Info = styled.div`
   strong {
     font-size: clamp(20px, 10px + 3vw, 32px);
     color: ${({ theme }) => theme.COLORS.BLUE_200};
-    min-width: 100px;
+    min-width: 150px;
   }
   span {
     font-size: 20px;
@@ -114,5 +114,12 @@ export const Info = styled.div`
     z-index: 6;
   }
 
+  button {
+    max-width: 200px;
+  }
+
+  > div {
+    width: 100%;
+  }
 
 `

@@ -94,6 +94,12 @@ export const DishDetails = styled.div`
           font-size: 24px;
         }
       }
+
+      
+      span {
+          font-size: 20px;
+          font-weight: 700;
+        }
     }
   }
 `;

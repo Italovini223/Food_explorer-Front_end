@@ -1,36 +1,22 @@
 import { useState } from "react";
 
+import {useAuth} from '../../hooks/auth';
+
 import { Container, Content, SingOutForm } from "./styles";
 
 import {Label} from '../../components/Label';
 import {Button} from '../../components/Button';
 
 import LogoImg from '../../assets/Group 5946 big.svg'
-import { api } from "../../service/api";
 
 
-export function SingOut(){
+
+export function SingUp(){
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
 
-  async function handleSingOut() {
-      setIsLoading(true);
-
-      if(!name || !email || !password){
-        setIsLoading(false);
-        return alert("Preencha todos os campos");
-        
-      }
-
-      if(password.length < 6){
-        setIsLoading(false);
-        return alert("A senha deve conter no mínimo 6 caracteres");
-      }
-    
-      setIsLoading(false);
-  }  
+  const{singUp, isLoading} = useAuth();
 
   return (
     <Container>
@@ -59,9 +45,10 @@ export function SingOut(){
               onChange={e => setPassword(e.target.value)}
             />
             <Button 
-              text={isLoading ? "Carregando" : "Entrar"}
+              text={isLoading ? "Carregando" : "Registrar"}
               IsLoading={isLoading}
-              onClick={handleSingOut}
+              onClick={() => singUp({name, email, password})}
+              disabled={isLoading}
             />
             <a href="/">
               Ja tenho uma conta

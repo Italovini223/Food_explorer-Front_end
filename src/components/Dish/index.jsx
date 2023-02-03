@@ -87,21 +87,27 @@ export function Dish({data}){
         <a href={link}>{data.name}</a>
         <p>{data.description}</p>
         <strong>R$ {String(data.price /100).replace(".", ",")}</strong>
-        <div>
-          <div className="quantity">
-            <button onClick={handleMoreQuantity}>
-              <IoMdAdd />
-            </button>
-            <span>
-              {quantity}
-            </span>
-            <button onClick={handleLessQuantity}>
-            <AiOutlineMinus />
-            </button>
-          </div>
 
-          <Button text="incluir" onClick={() => addDishRToCart(dish)} />
-        </div>
+        {
+          !isAdmin  && 
+
+          <div>
+            <div className="quantity">
+              <button onClick={handleMoreQuantity}>
+                <IoMdAdd />
+              </button>
+              <span>
+                {quantity}
+              </span>
+              <button onClick={handleLessQuantity}>
+              <AiOutlineMinus />
+              </button>
+            </div>
+
+            <Button text="incluir" onClick={() => addDishRToCart(dish)} />
+          </div>
+        }
+        
       </DishDetails>
   </Container>
   )

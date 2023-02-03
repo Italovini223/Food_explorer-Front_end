@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { api } from "../../service/api";
 
+import {useFavorites} from '../../hooks/favorites'
+
 import { Banner, Container, Content } from "./styles";
 
 import { Header } from '../../components/Header';
@@ -12,19 +14,26 @@ import { Footer } from "../../components/Footer";
 
 export function Home(){
   const [dishes, setDishes] = useState([]);
+  const [search, setSearch] = useState("");
+
+  const {favorites} = useFavorites();
+
+  function handleFavoritesDishes(){
+    setDishes([...favorites])
+  }
 
   useEffect(() => {
     async function fetchDishes(){
-      const response = await api.get("/dish");
+      const response = await api.get(`/dish?name=${search}`);
   
       setDishes([...response.data]);
     }
 
     fetchDishes();
-  }, [])
+  }, [search])
   return(
     <Container>
-      <Header />
+      <Header onClick={handleFavoritesDishes} change={e => setSearch(e.target.value)}/>
       <Content>
         <Banner>
           <img src={BannerImg} alt="Imagem ilustrativa de frutas" />

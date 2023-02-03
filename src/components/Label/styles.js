@@ -6,6 +6,11 @@ export const Container = styled.div`
   flex-direction: column;
   gap: 8px;
   color: ${({ theme }) => theme.COLORS.GRAY_200};
+
+  > label {
+    font-size: 16px;
+  }
+
   > input {
     height: 48px;
     padding: 14px;

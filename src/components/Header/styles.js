@@ -28,6 +28,14 @@ export const Content = styled.div`
     font-size: 16px;
   }
 
+  .favorites {
+    background: transparent;
+    border: none;
+    color: ${({theme}) => theme.COLORS.WHITE};
+    font-size: 16px;
+    cursor: pointer;
+  }
+
   > button {
     max-width: 250px;
   }

@@ -12,15 +12,18 @@ import logoImg from '../../assets/Frame 5946.svg';
 import { Input } from "../Input";
 import { Button } from "../Button";
 
-export function Header(){
+export function Header({change,...rest}){
 
   const {singOut, user} = useAuth();
   const {cart} = useCart();
+
+  const isAdmin = user.isAdmin === 1;
 
   const navigate = useNavigate();
 
   function handleSingOut(){
     singOut();
+    navigate("/");
   }
 
 
@@ -30,15 +33,16 @@ export function Header(){
       <Logo href='/'>
         <img src={logoImg} alt="Logo escrito food explorer" />
       </Logo>
-        {user.isAdmin !== 1 ? <a href="#">Meus favoritos</a> : <a href="/new">Adicionar pratos</a>}
+        {user.isAdmin !== 1 ? <button className='favorites' {...rest}>Meus favoritos</button> : <a href="/new">Adicionar pratos</a>}
         <Input 
           icon={BiSearch}
           placeholder="Busque pelas opções de pratos"
+          onChange={change}
         />
         <Button 
           icon={TfiReceipt}
-          text={`Meus pedidos(${cart.length})`}
-          onClick={() => navigate("/order")}
+          text={isAdmin ? "Pedidos" : `Meus pedidos(${cart.length})`}
+          onClick={() => isAdmin ? navigate("/orders") :  navigate("/cart")}
         />
 
         <ExitButton onClick={handleSingOut}>

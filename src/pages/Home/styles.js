@@ -48,6 +48,10 @@ export const Banner = styled.div`
       font-size: 40px;
       line-height: 56px;
     }
+
+    p {
+      font-size: 16px;
+    }
   }
  
 `;

@@ -40,6 +40,40 @@ function AuthProvider({children}){
     }
   }
 
+  async function singUp({name, email, password}){
+    setIsLoading(true);
+    try {
+      if(!name || !email || !password){
+        setIsLoading(false);
+        return alert("Preencha todos os campos")
+      }
+
+      if(password.length < 6) {
+        setIsLoading(false);
+        return alert("A senha deve conter no mínimo 6 caráteres")
+      }
+  
+      const response = await api.post("/user", {
+        name,
+        email,
+        password,
+        isAdmin: false
+      });
+      setIsLoading(false);
+      return alert(response.data.message);
+
+    } catch(error) {
+      if(error.response){
+        setIsLoading(false);
+        return alert(error.response.data.message);
+      }
+
+      setIsLoading(false);
+      return alert("Não foi possível registrar-se!")
+    }
+
+  }
+
   function singOut(){
     localStorage.removeItem("@FoodExplorer: user");
     localStorage.removeItem("@FoodExplorer: token");
@@ -63,6 +97,7 @@ function AuthProvider({children}){
     <AuthContext.Provider value={{
       singIn,
       singOut,
+      singUp,
       user: data.user,
       isLoading
     }}>

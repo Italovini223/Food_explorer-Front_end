@@ -7,6 +7,10 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
+  :root {
+    font-size: 62.5%;
+  }
+
   body {
     background: ${({theme}) => theme.COLORS.BACKGROUND_500};
 
