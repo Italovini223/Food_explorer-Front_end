@@ -32,14 +32,17 @@ export const Content = styled.div`
   align-items: center;
   flex: 1;
   gap: 100px;
+
  
 `
 
 export const Main = styled.main`
   display: flex;
+  flex-direction: column;
   gap: 40PX;
   justify-content: center;
   align-items: center;
+  padding: 0 1rem;
   .dishContent{
     width: 300px;
     border-radius: 50%;
@@ -74,6 +77,34 @@ export const Main = styled.main`
       }
     }
   }
+
+  @media (min-width: 768px) {
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4rem;
+    > div:nth-child(1) {
+      max-width: 39rem;
+      border-radius: 50%;
+    }
+    > div:nth-child(2) {
+      max-width: 60rem;
+      align-items: flex-start;
+      h1 {
+        margin-top: 0;
+      }
+      p {
+        text-align: left;
+      }
+      div:nth-child(5) {
+        width: 10rem;
+        img {
+          display: block;
+        }
+      }
+    }
+  }
   
 `
 
@@ -85,16 +116,18 @@ export const Ingredients = styled.div`
 `;
 
 export const Info = styled.div`
-  margin-top: 20px;
+  margin: 20px 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 17px;
   width: 100%;
+
   strong {
     font-size: clamp(20px, 10px + 3vw, 32px);
     color: ${({ theme }) => theme.COLORS.BLUE_200};
-    min-width: 150px;
+
   }
   span {
     font-size: 20px;
@@ -120,6 +153,15 @@ export const Info = styled.div`
 
   > div {
     width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    padding-inline: 0;
+    flex-direction: row;
+     
+    > strong{
+      min-width: 14rem;
+    } 
   }
 
 `

@@ -23,7 +23,7 @@ export function Cart(){
   const [isPix, setIsPix] = useState(true);
   const [paymentAccept, setPaymentAccept] = useState(false);
 
-  const {cart, } = useCart();
+  const {cart} = useCart();
   const {createNewOrder} = useOrder();
 
   const total = cart.reduce((value, dish) => {

@@ -1,23 +1,31 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  height: 100vh;
+  height: 100%;
   width: 100%;
+
+  @media(min-width: 1050px){
+    height: 100vh;
+  }
 `;
 
 export const Content = styled.div`
   width: 100%;
   height: 100%;
 
-  margin-top: 32px;
+  margin: 32px 0;
 
 
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   gap: 75px;
 
-
+  @media(min-width: 1050px){
+    flex-direction: row;
+    
+  }
 `;
 
 
@@ -123,12 +131,12 @@ export const Payment = styled.div`
         }
       }
 
-      @media (min-width: 768px) {
+      @media (min-width: 1050px) {
         padding: 40px 90px;
       }
     }
   }
-  @media (min-width: 768px) {
+  @media (min-width: 1050px) {
     max-width: 530px;
   }
 `;
