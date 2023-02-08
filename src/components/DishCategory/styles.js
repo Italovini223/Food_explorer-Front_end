@@ -6,6 +6,9 @@ export const Container = styled.section`
 
   width: 100%;
 
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+
   color: ${({theme}) => theme.COLORS.WHITE};
 
   > h2 {
