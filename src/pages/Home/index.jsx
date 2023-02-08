@@ -33,7 +33,7 @@ export function Home(){
   }, [search])
   return(
     <Container>
-      <Header onClick={handleFavoritesDishes} change={e => setSearch(e.target.value)}/>
+      <Header click={handleFavoritesDishes} change={e => setSearch(e.target.value)}/>
       <Content>
         <Banner>
           <img src={BannerImg} alt="Imagem ilustrativa de frutas" />

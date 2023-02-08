@@ -4,6 +4,8 @@ export const Container = styled.section`
   padding-inline: 40px;
   margin-bottom: 40px;
 
+  width: 100%;
+
   color: ${({theme}) => theme.COLORS.WHITE};
 
   > h2 {

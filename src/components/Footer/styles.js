@@ -15,4 +15,10 @@ export const Container = styled.footer`
 
   background: ${({theme}) => theme.COLORS.BLUE_800};
 
+  @media(max-width: 650px){
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+  }
+
 `;

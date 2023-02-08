@@ -1,9 +1,11 @@
+import { useState } from 'react';
+
 import {useAuth} from '../../hooks/auth';
 import {useCart} from '../../hooks/cart';
 
-import { Container, ExitButton, Content, Logo } from "./styles";
+import { Container, ExitButton, Content, Logo, Nav } from "./styles";
 
-import {BiSearch, TfiReceipt, RxExit} from 'react-icons/all'
+import {BiSearch, TfiReceipt, RxExit, FaBars, FiX  } from 'react-icons/all'
 
 import { useNavigate } from 'react-router-dom';
 
@@ -12,7 +14,10 @@ import logoImg from '../../assets/Frame 5946.svg';
 import { Input } from "../Input";
 import { Button } from "../Button";
 
-export function Header({change,...rest}){
+
+export function Header({change, click}){
+  const [menuVisible, setMenuVisible] = useState(true);
+
 
   const {singOut, user} = useAuth();
   const {cart} = useCart();
@@ -29,25 +34,34 @@ export function Header({change,...rest}){
 
   return (
     <Container>
+
      <Content>
       <Logo href='/'>
         <img src={logoImg} alt="Logo escrito food explorer" />
-      </Logo>
-        {user.isAdmin !== 1 ? <button className='favorites' {...rest}>Meus favoritos</button> : <a href="/new">Adicionar pratos</a>}
-        <Input 
-          icon={BiSearch}
-          placeholder="Busque pelas opções de pratos"
-          onChange={change}
-        />
-        <Button 
-          icon={TfiReceipt}
-          text={isAdmin ? "Pedidos" : `Meus pedidos(${cart.length})`}
-          onClick={() => isAdmin ? navigate("/orders") :  navigate("/cart")}
-        />
+        </Logo>
 
-        <ExitButton onClick={handleSingOut}>
-          <RxExit />
-        </ExitButton>
+        <Nav isVisible={menuVisible}>
+
+          {user.isAdmin !== 1 ? <button className='favorites' onClick={click}>Meus favoritos</button> : <a href="/new">Adicionar pratos</a>}
+          <Input 
+            icon={BiSearch}
+            placeholder="Busque pelas opções de pratos"
+            onChange={change}
+          />
+          <Button 
+            icon={TfiReceipt}
+            text={isAdmin ? "Pedidos" : `Meus pedidos(${cart.length})`}
+            onClick={() => isAdmin ? navigate("/orders") :  navigate("/cart")}
+          />
+
+          <ExitButton onClick={handleSingOut}>
+            <RxExit />
+          </ExitButton>
+
+        </Nav>
+        <button className='menu' onClick={() => setMenuVisible(!menuVisible)}>
+          {menuVisible ? <FiX /> : <FaBars />}
+        </button>
      </Content>
     </Container>
   )
