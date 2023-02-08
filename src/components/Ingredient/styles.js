@@ -7,6 +7,8 @@ export const Container = styled.div`
   justify-content: center;
   gap: 5px;
 
+  font-family: 'Poppins', sans-serif;
+
   > img {
     width: 50px;
     height: 50px;

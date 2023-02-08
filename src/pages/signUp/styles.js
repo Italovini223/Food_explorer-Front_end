@@ -50,16 +50,17 @@ export const SingOutForm = styled.div`
     justify-content: center;
     gap: 32px;
 
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+
     a {
       text-decoration: none;
       font-size: 14px;
-      font-weight: 500;
       color: ${({theme}) => theme.COLORS.WHITE};
     }
 
     h2 {
       font-size: 32px;
-      font-weight: 500;
       color: ${({theme}) => theme.COLORS.WHITE};
     }
   }

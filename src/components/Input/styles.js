@@ -30,6 +30,9 @@ export const Container = styled.div`
 
     &&::placeholder {
       color: ${({theme}) => theme.COLORS.WHITE};
+      font-weight: 400;
+      font-size: 16px;
+      font-family: 'Roboto', sans-serif;
     }
 
     &:focus {

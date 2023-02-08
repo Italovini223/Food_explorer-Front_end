@@ -42,7 +42,15 @@ export function Header({change, click}){
 
         <Nav isVisible={menuVisible}>
 
-          {user.isAdmin !== 1 ? <button className='favorites' onClick={click}>Meus favoritos</button> : <a href="/new">Adicionar pratos</a>}
+          {
+            user.isAdmin !== 1 ? 
+            <div className='user-options'>
+              <button className='favorites' onClick={click}>Meus favoritos</button> 
+              <button onClick={() => navigate('/orders')}>Minhas compras</button>
+            </div>
+            : 
+            <a href="/new">Adicionar pratos</a>
+          }
           <Input 
             icon={BiSearch}
             placeholder="Busque pelas opções de pratos"

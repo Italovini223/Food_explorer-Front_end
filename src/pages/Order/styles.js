@@ -16,6 +16,8 @@ export const Content = styled.div`
     font-size: clamp(2rem, 1rem + 3vw, 3.2rem);
     margin-block: 3.4rem;
     color: ${({theme}) => theme.COLORS.GRAY_100};
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
   }
   > main {
     max-width: 100%;
@@ -36,7 +38,7 @@ export const Table = styled.table`
     border: 2px solid #192227;
     padding-inline: 1rem;
   }
-  @media (min-width: 768px) {
+  @media (min-width: 1050px) {
     th, td {
       padding-inline: 2.4rem;
     }
@@ -48,6 +50,12 @@ export const Thead = styled.thead`
   height: 4.5rem;
 
   color: ${({theme}) => theme.COLORS.GRAY_100};
+
+  th {
+    font-size: 1.4rem;
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+  }
 `
 
 export const Tbody = styled.tbody`
@@ -56,6 +64,8 @@ export const Tbody = styled.tbody`
     td {
       font-size: 1.4rem;
       color: ${({ theme }) => theme.COLORS.GRAY_200};
+      font-weight: 400;
+      font-family: 'Roboto', sans-serif;
     }
   }
 `
@@ -65,13 +75,24 @@ export const SelectWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  > span {
+  span {
     width: 0.8rem;
     height: 0.8rem;
     border-radius: 50%;
     
     position: absolute;
-    left: 1.6rem;
+    left: 1.2rem;
+  }
+
+
+  .pendente {
+    background: red;
+  }
+  .preparando {
+    background: yellow;
+  }
+  .entregue {
+    background: #04D361;
   }
 
   select {

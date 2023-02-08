@@ -26,6 +26,8 @@ export const Container = styled.div`
       font-size: 14px;
       font-weight: 400;
 
+      font-family: 'Roboto', sans-serif;
+
   
     }
   }
@@ -43,12 +45,16 @@ export const DishDetails = styled.div`
     font-size: 32px;
     font-weight: 500;
 
+    font-family: 'Poppins', sans-serif;
+
     color: ${({theme}) => theme.COLORS.WHITE};
   }
 
   > span {
     font-size: 18px;
     font-weight: 400;
+
+    font-family: 'Roboto', sans-serif;
 
     color: ${({theme}) => theme.COLORS.GRAY_200};
   }

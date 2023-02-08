@@ -23,7 +23,10 @@ export const Container = styled.button`
 
   > span {
     font-size: 14px;
+    font-weight: 500;
     color: ${({theme}) => theme.COLORS.WHITE};
+
+    font-family: 'Poppins', sans-serif;
   }
 
   &:disabled {

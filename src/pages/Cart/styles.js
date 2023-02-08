@@ -36,6 +36,8 @@ export const DishesContent = styled.div`
     font-size: 32px;
     font-weight: 500;
 
+    font-family: 'Poppins', sans-serif;
+
     margin-bottom: 32px;
 
     color: ${({theme}) => theme.COLORS.WHITE};
@@ -55,6 +57,7 @@ export const DishesContent = styled.div`
   > span {
     font-size: 20px;
     font-weight: 500;
+    font-family: 'Poppins', sans-serif;
     color: ${({theme}) => theme.COLORS.GRAY_100};
   }
 `;
@@ -72,6 +75,8 @@ export const Payment = styled.div`
   > h1 {
     font-size: 32px;
     font-weight: 500;
+
+    font-family: 'Poppins', sans-serif;
 
     margin-bottom: 32px;
 
@@ -94,6 +99,9 @@ export const Payment = styled.div`
         align-items: center;
         justify-content: center;
         gap: 14px;
+
+        font-weight: 400;
+        font-family: 'Roboto', sans-serif;
       }
       .add-background {
         background: rgba(255, 255, 255, 0.05);

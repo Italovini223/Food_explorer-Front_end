@@ -7,6 +7,9 @@ export const Container = styled.div`
   gap: 8px;
   color: ${({ theme }) => theme.COLORS.GRAY_200};
 
+  font-weight: 400;
+  font-family: 'Roboto', sans-serif;
+
   > label {
     font-size: 16px;
   }
@@ -22,6 +25,9 @@ export const Container = styled.div`
     &::placeholder {
       color: ${({ theme }) => theme.COLORS.GRAY_500};
       font-size: 16px;
+
+      font-weight: 400;
+    font-family: 'Roboto', sans-serif;
     }
   }
 `

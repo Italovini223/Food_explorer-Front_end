@@ -2,14 +2,14 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 100%;
 
   display: flex;
   flex-direction: column;
 `;
 
 export const Content = styled.div`
-  width: 50%;
+  width: 80%;
   height: 100%;
 
   margin: 32px auto;
@@ -38,6 +38,11 @@ export const Content = styled.div`
     font-size: 32px;
     font-weight: 500;
     color: ${({theme}) => theme.COLORS.WHITE};
+  }
+
+  @media (min-width: 1400px) {
+    width: 50%;
+    padding-inline: 12.3rem;
   }
 `;
 
@@ -68,12 +73,16 @@ export const Form = styled.header`
     input[type="file"] {
       display: none;
     }
+
+    @media (min-width: 768px) {
+      width: 35.7rem;
+    }
   }
 
   > button {
     margin-top: 24px;
     height: 48px;
-    width: 357px;
+    width: 100%;
     background: #1A2327;
     border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
     border-radius: 5px;
@@ -86,6 +95,10 @@ export const Form = styled.header`
       opacity: 0.5;
       cursor: not-allowed;
     }
+
+    @media(min-width: 1050px){
+      width: 357px;
+    }
   }
 
 `;
@@ -93,9 +106,14 @@ export const Form = styled.header`
 
 export const InputWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   
   margin-bottom: 40px;
   gap: 40px;
+
+  @media (min-width: 1400px) {
+    flex-direction: row;
+  }
 `;
 
 export const SectionIngredients = styled.div`
@@ -143,6 +161,14 @@ export const IngredientsSection = styled.div`
     padding: 8px;
     border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
     border-radius: 5px;
+  }
+
+  @media (min-width: 768px) {
+    margin-bottom: 0;
+    > div {
+      max-height: 4.8rem;
+      gap: 2rem;
+    }
   }
 `
 

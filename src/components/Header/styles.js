@@ -26,16 +26,6 @@ export const Content = styled.div`
   align-items: center;
   justify-content: space-between;
 
-
-  .favorites {
-    background: transparent;
-    border: none;
-
-    width: 20rem;
-
-    color: ${({theme}) => theme.COLORS.WHITE};
-  }
-
   .menu {
     font-size: 24px;
     background: transparent;
@@ -44,7 +34,7 @@ export const Content = styled.div`
   }
 
 
-  @media (min-width: 1000px) {
+  @media (min-width: 1400px) {
     padding-inline: 12.3rem;
     justify-content: space-between;
     width: 100%;
@@ -93,6 +83,9 @@ export const Nav = styled.div`
   gap: 3.2rem;
   transition: all 0.4s;
 
+  font-weight: 400;
+  font-family: 'Roboto', sans-serif;
+
   > svg {
     color: ${({theme}) => theme.COLORS.WHITE};
     font-size: 24px;
@@ -102,7 +95,34 @@ export const Nav = styled.div`
     max-width: 250px;
   }
 
-  @media (min-width: 1000px) {
+  .user-options{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    font-size: 1.6rem;
+
+
+    button {
+      background: transparent;
+      border: none;
+
+      width: 20rem;
+
+      color: ${({theme}) => theme.COLORS.WHITE};
+    }
+  }
+
+  > a {
+    text-decoration: none;
+    color: ${({ theme }) => theme.COLORS.WHITE};
+    font-size: 1.6rem;
+    width: 250px;
+    text-align: center;
+  }
+
+  @media (min-width: 1400px) {
     position: relative;
     top: 0;
     padding: 0;

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { api } from "../../service/api";
 
@@ -58,6 +58,21 @@ export function Update(){
     setIsLoading(false);
   }
 
+  useEffect(() => {
+    async function getProduct(){
+      const response = await api.get(`/dish/show/${params.id}`);
+      const {name, description, price, ingredients} = response.data;
+
+      setName(name);
+      setDescription(description);
+      setPrice(String(price/100).replace(".", ","));
+      setIngredients(ingredients.map(ingredient => ingredient.name));
+      
+    }
+
+    getProduct();
+  }, [])
+
 
   return (
     <Container>
@@ -89,6 +104,7 @@ export function Update(){
                 title="Nome do prato" 
                 type="text" 
                 placeholder="Ex.: Salada Ceasar"
+                value={name}
                 onChange={e => setName(e.target.value)}
               />
           </InputWrapper>
@@ -120,6 +136,7 @@ export function Update(){
                   title="Preço" 
                   type="text" 
                   placeholder="R$ 00,00"
+                  value={price}
                   onChange={e => setPrice(e.target.value)}
                 />
               </div>
@@ -128,6 +145,7 @@ export function Update(){
               label="Description" 
               title="Descrição" 
               placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
+              defaultValue={description}
               onChange={e => setDescription(e.target.value)}
             />
             <button

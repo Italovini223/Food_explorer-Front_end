@@ -56,6 +56,8 @@ export const DishDetails = styled.div`
     line-height: 33px;
     text-decoration: none;
 
+    font-family: 'Poppins', sans-serif;
+
     color: ${({theme}) => theme.COLORS.WHITE};
   }
 
@@ -63,6 +65,8 @@ export const DishDetails = styled.div`
     font-size: 14px;
     font-weight: 400;
     line-height: 22px;
+
+    font-family: 'Roboto', sans-serif;
   }
 
   strong {
@@ -70,6 +74,8 @@ export const DishDetails = styled.div`
 
     font-size: 32px;
     font-weight: 400;
+
+    font-family: 'Roboto', sans-serif;
   }
 
   > div {
@@ -99,6 +105,8 @@ export const DishDetails = styled.div`
       span {
           font-size: 20px;
           font-weight: 700;
+
+          font-family: 'Roboto', sans-serif;
         }
     }
   }

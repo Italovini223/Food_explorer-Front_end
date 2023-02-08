@@ -19,6 +19,9 @@ export function Home(){
   const {favorites} = useFavorites();
 
   function handleFavoritesDishes(){
+    if(favorites.length === 0){
+      return alert("Você ainda não tem pratos marcados como favoritos!")
+    }
     setDishes([...favorites])
   }
 

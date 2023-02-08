@@ -12,6 +12,9 @@ export const ButtonBack = styled.div`
   width: 100%;
   margin: 24px auto 40px;
   display: flex;
+
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
   
   > a {
     display: flex;
@@ -78,7 +81,7 @@ export const Main = styled.main`
     }
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1050px) {
     width: 100%;
     flex-direction: row;
     justify-content: flex-start;

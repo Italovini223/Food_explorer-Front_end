@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { api } from '../../service/api';
 import { useAuth } from '../../hooks/auth';
-import { useCart } from '../../hooks/cart';
+
 
 import { Container, Content, Table, Thead, Tbody, SelectWrapper } from './styles';
 import { Header } from '../../components/Header';
@@ -11,6 +11,9 @@ export function Orders() {
   const [orders, setOrders] = useState([]);
 
   const { user } = useAuth()
+
+  const isAdmin = user.isAdmin === 1;
+
 
   async function handleOrderStatus(order, event) {
     let status = event.target.value
@@ -40,17 +43,18 @@ export function Orders() {
   useEffect(() => {
     async function fetchOrders() {
       const response = await api.get("/order/index");
-      setOrders([...response.data]) 
+      setOrders([...response.data]);
+      console.log([...response.data])
     }
 
     fetchOrders()
-  }, [])
+  }, [handleOrderStatus])
 
   return (
     <Container>
       <Header />
       {
-        user.isAdmin &&
+        user &&
         <Content>
           <h3>Pedidos</h3>
           <main>
@@ -69,19 +73,30 @@ export function Orders() {
                   orders.map(order => (
                     <tr key={String(order.id)}>
                       <td>
-                        <SelectWrapper>
-                          <span id='orderStatus' className={order.status}></span>
-                          <select name="select" id="select" onChange={event => handleOrderStatus(order, event)}>
-                            <option defaultValue={order.status}>{order.status}</option>
-                            <option value="preparando"> Preparando</option>
-                            <option value="entregue">Entregue</option>
-                          </select> 
-                        </SelectWrapper>
+                        {
+                          isAdmin ?
+                            <SelectWrapper>
+                              <span id='orderStatus' className={order.status}></span>
+                              <select name="select" id="select" onChange={event => handleOrderStatus(order, event)}>
+                                <option defaultValue={order.status}>{order.status}</option>
+                                <option value="pendente"> pendente </option>
+                                <option value="preparando"> preparando</option>
+                                <option value="entregue">entregue</option>
+                              </select> 
+                            </SelectWrapper>
+                          :
+                            <SelectWrapper>
+                                <span id='orderStatus' className={order.status}></span>
+                                <select name="select" id="select">
+                                  <option defaultValue={order.status}>{order.status}</option>
+                                </select>
+                            </SelectWrapper>
+                        }
                       </td>
                       <td>00000{order.id}</td>
                       <td>
                       {
-                        order.itens.map(item => (
+                        order.dishes.map(item => (
                           <span key={item.title}> {item.quantity} x {item.title}, </span>
                         ))
                       }
