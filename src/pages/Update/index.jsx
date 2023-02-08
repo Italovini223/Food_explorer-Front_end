@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 
 import { api } from "../../service/api";
 
+import { useNavigate } from "react-router-dom";
+
 import { useParams } from "react-router-dom";
 
 import { Container, Content, Form, InputWrapper, SectionIngredients } from "./styles";
@@ -24,6 +26,7 @@ export function Update(){
   const [isLoading, setIsLoading] = useState(false);
 
   const params = useParams();
+  const navigate = useNavigate();
 
   function addIngredients(){
     setIngredients(prevState => [...prevState, newIngredient])
@@ -78,7 +81,7 @@ export function Update(){
     <Container>
       <Header />
       <Content>
-        <button>
+        <button onClick={() => navigate(-1)}>
           <SlArrowLeft />
           Voltar
         </button>

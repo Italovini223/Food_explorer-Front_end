@@ -58,7 +58,7 @@ export function Header({change, click}){
           />
           <Button 
             icon={TfiReceipt}
-            text={isAdmin ? "Pedidos" : `Meus pedidos(${cart.length})`}
+            text={isAdmin ? "Pedidos" : `Meu pedido(${cart.length})`}
             onClick={() => isAdmin ? navigate("/orders") :  navigate("/cart")}
           />
 

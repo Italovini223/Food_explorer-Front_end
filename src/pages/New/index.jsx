@@ -2,6 +2,8 @@ import { useState } from "react";
 
 import { api } from "../../service/api";
 
+import { useNavigate } from "react-router-dom";
+
 import { Container, Content, Form, InputWrapper, SectionIngredients } from "./styles";
 
 import {SlArrowLeft, FiUpload} from 'react-icons/all';
@@ -24,6 +26,8 @@ export function New(){
 
   const [isLoading, setIsLoading] = useState(false);
   const [avatarFile, setAvatarFile] = useState(null);
+
+  const navigate = useNavigate();
 
 
   function addIngredients(){
@@ -71,7 +75,7 @@ export function New(){
     <Container>
       <Header />
       <Content>
-        <button>
+        <button onClick={() => navigate(-1)}>
           <SlArrowLeft />
           Voltar
         </button>
