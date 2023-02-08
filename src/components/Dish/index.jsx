@@ -84,7 +84,7 @@ export function Dish({data}){
 
       <DishDetails>
         <img src={imageURL} alt="Imagem do prato" />
-        <a href={link}>{data.name}</a>
+        <a href={user.isAdmin !== 1 ? `/details/${data.id}` : `/update/${data.id}`}>{data.name}</a>
         <p>{data.description}</p>
         <strong>R$ {String(data.price /100).replace(".", ",")}</strong>
 
