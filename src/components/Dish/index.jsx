@@ -1,4 +1,5 @@
 import {useState} from 'react';
+
 import { api } from '../../service/api';
 
 import { useNavigate } from 'react-router-dom';
@@ -84,10 +85,9 @@ export function Dish({data}){
 
       <DishDetails>
         <img src={imageURL} alt="Imagem do prato" />
-        <a href={user.isAdmin !== 1 ? `/details/${data.id}` : `/update/${data.id}`}>{data.name}</a>
+        <a type='button' onClick={() => user.isAdmin === 1 ? navigate(`/update/${data.id}`) : navigate( `/details/${data.id}`)}>{data.name}</a>
         <p>{data.description}</p>
         <strong>R$ {String(data.price /100).replace(".", ",")}</strong>
-
         {
           !isAdmin  && 
 

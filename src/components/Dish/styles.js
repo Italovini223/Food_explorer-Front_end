@@ -56,6 +56,8 @@ export const DishDetails = styled.div`
     line-height: 33px;
     text-decoration: none;
 
+    cursor: pointer;
+
     font-family: 'Poppins', sans-serif;
 
     color: ${({theme}) => theme.COLORS.WHITE};
