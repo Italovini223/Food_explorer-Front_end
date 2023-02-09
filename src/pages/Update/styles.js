@@ -6,6 +6,10 @@ export const Container = styled.div`
 
   display: flex;
   flex-direction: column;
+
+  @media(min-width: 1400px) {
+    height: 100vh;
+  }
 `;
 
 export const Content = styled.div`
