@@ -56,6 +56,10 @@ export const Form = styled.header`
   display: flex;
   flex-direction: column;
 
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'Roboto', sans-serif;
+
   .smallBox {
     max-width: 230px;
     #file {

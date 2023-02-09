@@ -6,7 +6,7 @@ Este projeto e uma pagina web de restaurante onde o usuario pode se cadastrar e 
 
 ## 🛠️ Stacks
 
-    - React 
+    -  
     - Vite
     - react-router-dom
     - styled-components
@@ -44,6 +44,14 @@ Link do site
  https://my-food-explorer.netlify.app/
 
 
+## 👤 Conta de administrador
+
+Para acessar a aplicação como administrador
+
+- Email: admin@gmail.com
+- Senha: admin123
+
+
 ## ✏️ Autor 
 
 - [@italoVinicius](https://www.github.com/Italovini223)
@@ -71,6 +79,17 @@ Link do site
 
 ### Carrinho
 ![CARRINHO](https://i.imgur.com/QQPXBfM.png)
+
+
+
+
+## Referência
+
+ - [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
+ - [Awesome README](https://github.com/matiassingers/awesome-readme)
+ - [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
+
+
 
 
 
