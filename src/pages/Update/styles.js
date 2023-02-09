@@ -42,6 +42,7 @@ export const Content = styled.div`
     font-size: 32px;
     font-weight: 500;
     color: ${({theme}) => theme.COLORS.WHITE};
+    font-family: 'Poppins', sans-serif;
   }
 
 
