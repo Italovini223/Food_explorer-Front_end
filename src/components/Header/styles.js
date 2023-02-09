@@ -120,6 +120,7 @@ export const Nav = styled.div`
     font-size: 1.6rem;
     width: 250px;
     text-align: center;
+    cursor: pointer;
   }
 
   @media (min-width: 1400px) {

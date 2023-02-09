@@ -43,13 +43,13 @@ export function Header({change, click}){
         <Nav isVisible={menuVisible}>
 
           {
-            user.isAdmin !== 1 ? 
+            !isAdmin ?
             <div className='user-options'>
               <button className='favorites' onClick={click}>Meus favoritos</button> 
               <button onClick={() => navigate('/orders')}>Minhas compras</button>
             </div>
             : 
-            <a href="/new">Adicionar pratos</a>
+            <a type='button' onClick={() => navigate('/new')}>Adicionar pratos</a>
           }
           <Input 
             icon={BiSearch}
