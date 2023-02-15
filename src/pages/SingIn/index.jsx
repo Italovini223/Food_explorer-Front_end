@@ -2,6 +2,8 @@ import { useState } from "react";
 
 import {useAuth} from '../../hooks/auth';
 
+import { useNavigate } from "react-router-dom";
+
 import { Container, Content, SingInForm } from "./styles";
 
 import {Label} from '../../components/Label';
@@ -15,6 +17,8 @@ export function SingIn(){
   const [password, setPassword] = useState("");
 
   const {singIn, isLoading} = useAuth();
+
+  const navigate = useNavigate();
   
 
   function handleSingIn() {
@@ -54,7 +58,7 @@ export function SingIn(){
               IsLoading={isLoading}
               onClick={handleSingIn}
             />
-            <a href="/register">
+            <a type="button" onClick={() => navigate('/register')}>
               Criar uma conta
             </a>
           </div>
