@@ -21,4 +21,11 @@ export const Container = styled.footer`
     gap: 1rem;
   }
 
+  > p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: ${({theme}) => theme.COLORS.ICE_WHITE};
+  }
+
 `;

@@ -30,6 +30,7 @@ export function Update(){
 
   function addIngredients(){
     setIngredients(prevState => [...prevState, newIngredient])
+    setNewIngredient('')
   }
 
   function removeIngredient(ingredientDeleted){
@@ -47,18 +48,26 @@ export function Update(){
 
     const replacePrice = price.replace(",", ".")
 
-    const formData = new FormData();
-    formData.append("avatar", avatarFile)
-    formData.append("name", name);
-    formData.append("description", description);
-    formData.append("price", Number(replacePrice));
-    ingredients.map(ingredient => formData.append("ingredients", ingredient));
+    if(avatarFile){
+      const formData = new FormData();
+      formData.append("avatar", avatarFile)
+      await api.patch(`/dish/updateAvatar/${params.id}`, formData);
+    }
+    
 
-    await api.put(`/dish/update/${params.id}`, formData);
+    await api.put(`/dish/update/${params.id}`, {
+      name,
+      description,
+      price: Number(replacePrice),
+      ingredients,
+
+    });
 
     alert("Prato atualizado com com sucesso");
 
     setIsLoading(false);
+
+    navigate('/')
   }
 
   useEffect(() => {
@@ -128,6 +137,7 @@ export function Update(){
                   <IngredientItem 
                     isNew 
                     placeholder="Adicionar"
+                    value={newIngredient}
                     onChange={e => setNewIngredient(e.target.value)}
                     onClick={addIngredients}
                   />

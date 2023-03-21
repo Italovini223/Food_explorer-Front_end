@@ -26,8 +26,6 @@ export function Dish({data}){
 
   let isFavorite = favorites.some((dish) => dish.id === data.id);
 
-  const link = user.isAdmin !== 1 ? `/details/${data.id}` : `/update/${data.id}`;
-
   const isAdmin = user.isAdmin === 1;
 
   const dish ={
@@ -59,7 +57,7 @@ export function Dish({data}){
     const response = await api.delete(`/dish/delete/${data.id}`); 
 
     alert(response.data.message); 
-     navigate("/"); 
+    navigate("/"); 
 
 
   }
@@ -93,14 +91,14 @@ export function Dish({data}){
 
           <div>
             <div className="quantity">
-              <button onClick={handleMoreQuantity}>
-                <IoMdAdd />
+              <button onClick={handleLessQuantity}>
+              <AiOutlineMinus />
               </button>
               <span>
                 {quantity}
               </span>
-              <button onClick={handleLessQuantity}>
-              <AiOutlineMinus />
+              <button onClick={handleMoreQuantity}>
+                <IoMdAdd />
               </button>
             </div>
 

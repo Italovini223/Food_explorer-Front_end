@@ -32,6 +32,7 @@ export function New(){
 
   function addIngredients(){
     setIngredients(prevState => [...prevState, newIngredient])
+    setNewIngredient('')
   }
 
   function removeIngredient(ingredientDeleted){
@@ -43,7 +44,7 @@ export function New(){
 
       setIsLoading(true);
 
-      if(!name || !description || !ingredients || !price) {
+      if(!name || !description || !ingredients || !price || !avatarFile) {
         setIsLoading(false);
         return alert("Preencha todos os campos")
       }
@@ -64,6 +65,8 @@ export function New(){
       alert("Prato criado com sucesso");
 
       setIsLoading(false);
+
+      navigate('/')
 
     } catch(error){
       alert("Nao foi possível cadastrar o prato")

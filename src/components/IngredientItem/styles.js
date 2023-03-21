@@ -25,7 +25,7 @@ export const Container = styled.div`
     width: 100px;
     padding: 12px;
     font-size: 16px;
-    color: ${({ theme, isNew }) => isNew ? theme.COLORS.GRAY_500 : '#FFFFFF'};
+    color: ${({ theme }) => theme.COLORS.WHITE };
     background: transparent;
     border: none;
 

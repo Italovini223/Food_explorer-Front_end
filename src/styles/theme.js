@@ -24,6 +24,7 @@ export default {
 
     GREEN_500: "#04D361",
 
+    ICE_WHITE: "#FFFAF1",
     WHITE: "#FFFFFF"
   }
 }
