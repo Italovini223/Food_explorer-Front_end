@@ -26,7 +26,7 @@ export const Slider = styled.div`
   > div {
     display: flex;
     gap: 27px;
-    padding-right: 80px;
+    padding: 0 80px;
     overflow-x: auto;
     scroll-behavior: smooth;
     ::-webkit-scrollbar {

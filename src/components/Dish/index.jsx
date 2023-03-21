@@ -57,6 +57,7 @@ export function Dish({data}){
     const response = await api.delete(`/dish/delete/${data.id}`); 
 
     alert(response.data.message); 
+    navigate("/new"); 
     navigate("/"); 
 
 
