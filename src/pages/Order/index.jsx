@@ -44,7 +44,6 @@ export function Orders() {
     async function fetchOrders() {
       const response = await api.get("/order/index");
       setOrders([...response.data]);
-      console.log([...response.data])
     }
 
     fetchOrders()
