@@ -2,6 +2,10 @@
 # Foood Explorer 
 Este projeto e uma pagina web de restaurante onde o usuario pode se cadastrar e ter acesso ao menu do restaurante, realizar o seu pedido, efetuar o pagamento e ainda acompanhar o status do seu pedido. 
 
+## Capa
+
+![Food Explorer](https://i.imgur.com/MRhtgBx.png)
+
 
 
 ## 🛠️ Stacks
@@ -52,6 +56,26 @@ Para acessar a aplicação como administrador
 - Senha: admin123
 
 
+## Melhorias na versão 1.1.0
+
+Algumas melhorias feitas na versão 1.1.0, foram: 
+
+ - a adição de uma fonte no texto do rodapé  
+
+ - A adição de uma animação quando o usuário passa o cursor por cima de um componente de prato
+
+ - Ao adicionar um novo ingrediente ao prato o input de cadastrar um novo ingrediente volta a ficar vazio 
+
+ - O reposicionamento dos botões de escolher a quantidade de um prato para adicionar ao carrinho  
+
+ - Adicionar um espaço entre o último componente de prato e o slider para que o botões de excluir ou de adicionar aos favoritos nao  fiquem encobertos 
+
+ - A atualização da página quando um prato e excluído 
+
+
+
+
+
 ## ✏️ Autor 
 
 - [@italoVinicius](https://www.github.com/Italovini223)
@@ -61,7 +85,7 @@ Para acessar a aplicação como administrador
 
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/%C3%ADtalo-vinicius-6469281bb/)
 
-📫  `italovinicius2018@gmail.com`
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](italovinicius2018@gmail.com)
 
 ## 📷 Screenshots
 
