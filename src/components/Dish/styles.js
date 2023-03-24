@@ -15,6 +15,14 @@ export const Container = styled.div`
 
   color: ${({theme}) => theme.COLORS.WHITE};
   background: ${({theme}) => theme.COLORS.BLUE_400};
+
+  transition-property: transform;
+  transition-duration: 400ms;
+  transition-timing-function: cubic-bezier(0.42, 0.06, 1, 1);
+
+  &:hover {
+    transform: scale(0.9);
+  }
 `;
 
 export const FavoriteButton = styled.div`
@@ -51,6 +59,11 @@ export const DishDetails = styled.div`
   }
 
   a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+
     font-size: 24px;
     font-weight: 700;
     line-height: 33px;
@@ -61,6 +74,11 @@ export const DishDetails = styled.div`
     font-family: 'Poppins', sans-serif;
 
     color: ${({theme}) => theme.COLORS.WHITE};
+
+    > svg {
+      font-size: 24px;
+    }
+
   }
 
   p {

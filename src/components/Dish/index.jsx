@@ -10,7 +10,7 @@ import {useCart} from '../../hooks/cart';
 
 import { Container, DishDetails, FavoriteButton } from "./styles";
 
-import {AiOutlineHeart, AiFillHeart, IoMdAdd, AiOutlineMinus, FiTrash} from 'react-icons/all'
+import {AiOutlineHeart, AiFillHeart, IoMdAdd, AiOutlineMinus, FiTrash, MdKeyboardArrowRight} from 'react-icons/all'
 import React from "react";
 import { Button } from '../Button';
 
@@ -84,7 +84,7 @@ export function Dish({data}){
 
       <DishDetails>
         <img src={imageURL} alt="Imagem do prato" />
-        <a type='button' onClick={() => user.isAdmin === 1 ? navigate(`/update/${data.id}`) : navigate( `/details/${data.id}`)}>{data.name}</a>
+        <a type='button' onClick={() => user.isAdmin === 1 ? navigate(`/update/${data.id}`) : navigate( `/details/${data.id}`)}>{data.name} <MdKeyboardArrowRight /> </a>
         <p>{data.description}</p>
         <strong>R$ {String(data.price /100).replace(".", ",")}</strong>
         {
