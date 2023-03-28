@@ -112,6 +112,8 @@ export const Form = styled.header`
 export const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
+
+
   
   margin-bottom: 40px;
   gap: 40px;
@@ -173,6 +175,39 @@ export const IngredientsSection = styled.div`
     > div {
       max-height: 4.8rem;
       gap: 2rem;
+    }
+  }
+`;
+
+
+export const SelectWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: ${({ theme }) => theme.COLORS.GRAY_200};
+
+  font-weight: 400;
+  font-family: 'Roboto', sans-serif;
+
+  > span {
+    font-size: 16px;
+  }
+
+  select {
+    width: 100%;
+    height: 48px;
+    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_500};
+    padding: 1.3rem 1.6rem 1.3rem 3.2rem;
+    color: white;
+    border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
+    border-radius: 0.5rem;
+    appearance: none;
+    -webkit-appearance: none;
+    @media (min-width: 768px) {
+      background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 10L12 14L16 10' stroke='%239C98A6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+      background-repeat: no-repeat;
+      background-position: right 1rem top 50%;
+      width: 17.5rem;
     }
   }
 `

@@ -4,7 +4,7 @@ import { api } from "../../service/api";
 
 import { useNavigate } from "react-router-dom";
 
-import { Container, Content, Form, InputWrapper, SectionIngredients } from "./styles";
+import { Container, Content, Form, InputWrapper, SectionIngredients, SelectWrapper } from "./styles";
 
 import {SlArrowLeft, FiUpload} from 'react-icons/all';
 
@@ -100,19 +100,22 @@ export function New(){
               </label>
             </div>
             <Label 
-                label="name" 
-                title="Nome do prato" 
-                type="text" 
-                placeholder="Ex.: Salada Ceasar"
-                onChange={e => setName(e.target.value)}
-              />
-              <Label
-                label="category"
-                title="Categoria"
-                type="text"
-                placeholder="pratos principais" 
-                onChange={e => setCategory(e.target.value)}
-              />
+              label="name" 
+              title="Nome do prato" 
+              type="text" 
+              placeholder="Ex.: Salada Ceasar"
+              onChange={e => setName(e.target.value)}
+            />
+
+            <SelectWrapper>
+              <span>Categorias</span>
+              <select name="select" id="select" onChange={e => setCategory(e.target.value)}>
+                <option defaultValue="pratos principais">pratos principais</option>
+                <option value="sobremesas">sobremesas </option>
+                <option value="bebidas">bebidas</option>
+              </select> 
+            </SelectWrapper>
+
           </InputWrapper>
 
           <InputWrapper>
