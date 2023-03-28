@@ -70,6 +70,8 @@ Algumas melhorias feitas na versão 1.1.0, foram:
 
  - Adicionar um espaço entre o último componente de prato e o slider para que o botões de excluir ou de adicionar aos favoritos nao  fiquem encobertos 
 
+  - O input para digitar o tipo da categoria do prato ao criar foi substituído por um select
+
 
 
 
