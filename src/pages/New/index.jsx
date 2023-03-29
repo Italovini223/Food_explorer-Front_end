@@ -44,9 +44,12 @@ export function New(){
 
       setIsLoading(true);
 
-      if(!name || !description || !ingredients || !price || !avatarFile) {
-        setIsLoading(false);
+      if(!name || !description || !ingredients || !price || !avatarFile || !category) {
         return alert("Preencha todos os campos")
+      }
+
+      if(category === "adicione uma categoria"){
+        return alert("selecione uma categoria")
       }
 
       const replacePrice = price.replace(",", ".")
@@ -64,14 +67,13 @@ export function New(){
 
       alert("Prato criado com sucesso");
 
-      setIsLoading(false);
-
       navigate('/')
 
     } catch(error){
       alert("Nao foi possível cadastrar o prato")
-      setIsLoading(false);
       console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   } 
   return (
@@ -110,6 +112,7 @@ export function New(){
             <SelectWrapper>
               <span>Categorias</span>
               <select name="select" id="select" onChange={e => setCategory(e.target.value)}>
+                <option>adicione uma categoria</option>
                 <option defaultValue="pratos principais">pratos principais</option>
                 <option value="sobremesas">sobremesas </option>
                 <option value="bebidas">bebidas</option>

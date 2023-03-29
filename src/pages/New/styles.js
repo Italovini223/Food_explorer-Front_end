@@ -197,7 +197,7 @@ export const SelectWrapper = styled.div`
     width: 100%;
     height: 48px;
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_500};
-    padding: 1.3rem 1.6rem 1.3rem 3.2rem;
+    padding: 1rem ;
     color: white;
     border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
     border-radius: 0.5rem;
